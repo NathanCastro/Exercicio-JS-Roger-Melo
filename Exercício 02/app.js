@@ -33,12 +33,9 @@ const myFavoriteTom = tom + firstTom
 */
 
 const mozilla = 'Mozilla Developer Network'
-const getM = mozilla.charAt(0)
-const getD = mozilla.charAt(8)
-const getN = mozilla.charAt(18)
-const mdn = getM + getD + getN; 
+const mdn = mozilla[0] + mozilla[8] + mozilla[18]; 
 
-//  console.log(mdn);
+ //console.log(mdn);
 
 
 /*
@@ -66,8 +63,8 @@ Nesse exercicio pode ser feito de várias formas.
 string[length - 1]  console.log(randomWord[randomWord.length-1]);
 */
 
-let randomWord = 'Araraquara'
-// console.log(randomWord.substr(-1))
+let randomWord = 'Nathan'
+//console.log(randomWord[randomWord.length-1])
 
 /*
 09 - Comente o console.log acima, e,
@@ -101,7 +98,7 @@ const winterMessage = 'o inverno está chegando'
 12 - Comente o console.log acima, e,
 - Exiba, no console, o index da última ocorrência do caractere "n" da "winterMessage".
 */
-//console.log(winterMessage.indexOf('n', 8))
+//console.log(winterMessage.lastIndexOf('n'))
 
 /*
 13 - Comente o console.log acima, e,
@@ -126,7 +123,8 @@ const realBestMovie = bestMovie.replace("La la land", "Moonlight");
 
 /*
 15 - Comente o console.log acima, e,
-- Abaixo deste comentário, armazene o resto de 10 dividido por 3 em uma constante "reminder";
+- Abaixo deste comentário, armazene o resto de 10 dividido por 3 em uma constante
+  "reminder";
 - Exiba a reminder no console. O resultado deve ser 1;
 */
 const reminder = 10 % 3;
@@ -140,7 +138,7 @@ const reminder = 10 % 3;
 */
 
 let episodes = 6
-episodes+=1
+episodes++
 //console.log(episodes);
 
 /*
@@ -150,7 +148,7 @@ episodes+=1
 - O valor exibido no console deve ser 6.
 */
 
-episodes-=1
+episodes--
 //console.log(episodes);
 
 
@@ -169,8 +167,9 @@ episodes+=4
 - Insira a let "episodes" no lugar de "NUMERO_DE_EPISÓDIOS";
 - Exiba a "allEpisodes" no console.
 */
-const allEpisodes = 'O nº de episódios é: NUMERO_DE_EPISÓDIOS'
-//console.log(allEpisodes.replace('NUMERO_DE_EPISÓDIOS', `${episodes}`));
+// const allEpisodes = 'O nº de episódios é: NUMERO_DE_EPISÓDIOS'
+const allEpisodes = 'O nº de episódios é: ' + episodes;
+//console.log(allEpisodes);
 
 
 /*
@@ -181,7 +180,7 @@ const allEpisodes = 'O nº de episódios é: NUMERO_DE_EPISÓDIOS'
 - Não use template strings.
 */
 
-const bookMessage = "'O Conto da Aia' é um dos livros mais vendidos da década."
+const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da década.'
 
 //console.log(bookMessage)
 
@@ -196,8 +195,9 @@ const bookMessage = "'O Conto da Aia' é um dos livros mais vendidos da década.
 */
 
 const name = "walter white"
-let newName = name.replaceAll('w', 'W');
-console.log(newName)
+// let newName = name.replaceAll('w', 'W');
+let newName = name[0].toUpperCase() + name.slice(1,6) + ' ' + name[7].toUpperCase() + name.slice(8)
+//console.log(newName)
 
 /*
 22 - Comente o console.log acima, e,
@@ -209,5 +209,6 @@ console.log(newName)
 - Exiba a "newName" no console;
 */
 
-newName = `${name.replaceAll('w', 'W')}`
-console.log(newName)
+//newName = `${name.replaceAll('w', 'W')}`
+newName = `${name[0].toUpperCase()}${name.slice(1,6)} ${name[7].toUpperCase()}${name.slice(8)} `
+//console.log(newName)
