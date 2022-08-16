@@ -123,18 +123,16 @@ const arrays = [
   [2, 8, 4]
 ]
 
-let sum = 0;
+
 let somar = 0;
 
-for (let index = 0; index < arrays.length; index++) {
-  sum += somar[index]
-  
-  for (let juntex = 0; juntex < arrays[index].length; juntex++) {
-    somar += arrays[index][juntex]    
+for (let i = 0; i < arrays.length; i++) {  
+  for (let j = 0; j < arrays[i].length; j++) {
+    somar += arrays[i][j]    
   }  
   
 }
-//console.log(somar)  fiz assim
+//console.log(somar) // fiz assim
 
 let somaFor = 0;
 for (let i = 0; i < arrays.length; i++) {  
@@ -143,7 +141,7 @@ for (let i = 0; i < arrays.length; i++) {
       
   }  
 }
-console.log(somaFor) //professor fez assim
+//console.log(somaFor) //professor fez assim
 
 
 
