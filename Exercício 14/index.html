@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    <h1>Adicionando e Modificando conteúdo em uma página</h1>
+
+    <div>
+        <p>Hello World</p>
+        <p>Oi</p>
+        <p class="error"></p>
+    </div>
+
+    <div class="content">
+        <p>Conteúdo aqui</p>
+    </div>
+    <script >
+        const paragraph = document.querySelector('p')
+
+        paragraph.innerText += ' Filha da puta'
+
+        const paragraphs = document.querySelectorAll('p')
+
+        paragraphs.forEach((paragraph1, index) => {
+            paragraph1.innerHTML += ` Novo texto ${index + 1}`
+        })
+
+        const div = document.querySelector('.content');
+        //div.innerHTML = "<h2>Novo H2</h2>"
+
+        const people = ['oi', 'ola', 'tchau']
+        people.forEach(person => {
+            div.innerHTML += `<p>${person}</p>`
+        })
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios da aula 02 da etapa 05</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Exercícios da aula 02 da etapa 05</h1>
+
+  <ul class="numbers"></ul>
+
+  <a class="link" href="#">Repo de exercícios e dúvidas dos alunos(as) do CJRM</a>
+
+  <script src="./app.js"></script>
+</body>
+</html>
