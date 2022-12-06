@@ -11,5 +11,38 @@
     min-height: 500px;
     padding: 60px 0 0;
 }
+li{
+    text-decoration: none;
+}
 
+.input_grandSon{
+    list-style-type: none;
+    background: #eee;
+    margin: 2px;
+    padding: 5px 8px 6px 26px;
+}
  
+
+.divInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checked{
+    background: #888;
+    text-decoration: line-through;
+}
+
+li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: red;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}

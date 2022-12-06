@@ -1,12 +1,10 @@
 const formulario = document.querySelector('form')
 const inputValue = document.querySelector('.input__son');
-const inputResult = document.querySelector('.input_grandSon');
 const elementDiv = document.querySelector('.boxList')
 const elementsInsideDiv = Array.from(elementDiv.children)
 const divInput = document.querySelector('.divInput');
 
 
-// console.log("🚀 ~ file: script.js ~ line 5 ~ elementsInsideDiv", elementsInsideDiv)
 
 /* formulario.addEventListener('submit', event => {
 
@@ -33,38 +31,34 @@ const divInput = document.querySelector('.divInput');
 
 formulario.addEventListener('submit', event => {
     event.preventDefault();
-    const txtValue = document.createTextNode(inputValue.value)
+    let txtValue = document.createTextNode(inputValue.value)
 
-    if(inputValue.value === ""){
-        alert('Digite uma tarefa por favor')
+    if (inputValue.value === "") {
+        alert('Digite uma tarefa por favor');
+        return;
     }
-    let i;
-    // for (i = 0; i<inputValue.length; i++){
-    //     // inputResult.value = inputValue.value;
-    //     const maisInput = document.createElement("input")
-    //     console.log("🚀 ~ file: script.js ~ line 44 ~ maisInput", maisInput)
-    //     maisInput.classList.add = "input_grandSon"
-    //     maisInput.value = inputResult.value
-    //     inputValue[i].value.appendChild(maisInput)
-    // }
 
-    const maisInput = document.createElement("input")
-    maisInput.classList.add = "input_grandSon"
-    maisInput.appendChild(txtValue);
-    
+    const newInput = document.createElement("li");
+    newInput.appendChild(txtValue)
+    newInput.classList.add("input_grandSon");
+    divInput.appendChild(newInput);
 
     inputValue.value = ""
 
+    const newLis = document.querySelectorAll('li');
+    
+    newLis.forEach(item => {
+        item.addEventListener('click', event => {
+            const liEvent = event.target;
+            if(liEvent === newInput){
+                console.log('entrou no if');
+                // liEvent.style.textDecoration = 'line-through'
+                // liEvent.style.backgroundColor = '#888'
+
+                liEvent.classList.toggle("checked");
+            }
+        }, false)
+    });
+
 })
 
-
-
-
-
-/*
-1- Segundo input começar com display none;
-
-2- Ao colocar o valor no 1º input, aparecer esse valor no 2º input
-
-3- Quando clicar no checkin aparecer o risco no input[text-decoration:line-through]
-*/ 
