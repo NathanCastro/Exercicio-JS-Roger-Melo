@@ -1,33 +1,16 @@
 const formulario = document.querySelector('form')
 const inputValue = document.querySelector('.input__son');
 const elementDiv = document.querySelector('.boxList')
-const elementsInsideDiv = Array.from(elementDiv.children)
 const divInput = document.querySelector('.divInput');
 
 
 
-/* formulario.addEventListener('submit', event => {
-
-    event.preventDefault()
-    if(inputValue.value === ""){
-        alert('Digitar uma tarefa por favor')
+divInput.addEventListener('click', event => {
+    newList = event.target
+    if(newList.tagName === 'LI'){     
+        newList.classList.toggle('checked');
     }
-    const newParagraph = document.createElement('p');
-    newParagraph.textContent = inputValue.value;
-    newParagraph.classList.add('list');
-    elementDiv.appendChild(newParagraph);
-    inputValue.value = ""
-    inputValue.getAttribute('newParagraph')
-    
-    const novaListaParagrafo = document.querySelectorAll('p')
-    novaListaParagrafo.forEach( item => {
-        item.addEventListener('click', event => {
-            const teste = event.target
-            teste.style.textDecoration ='line-through';
-        })
-    })
-});  */
-
+})
 
 formulario.addEventListener('submit', event => {
     event.preventDefault();
@@ -44,21 +27,6 @@ formulario.addEventListener('submit', event => {
     divInput.appendChild(newInput);
 
     inputValue.value = ""
-
-    const newLis = document.querySelectorAll('li');
-    
-    newLis.forEach(item => {
-        item.addEventListener('click', event => {
-            const liEvent = event.target;
-            if(liEvent === newInput){
-                console.log('entrou no if');
-                // liEvent.style.textDecoration = 'line-through'
-                // liEvent.style.backgroundColor = '#888'
-
-                liEvent.classList.toggle("checked");
-            }
-        }, false)
-    });
 
 })
 
