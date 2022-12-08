@@ -12,14 +12,16 @@
     padding: 60px 0 0;
 }
 li{
-    text-decoration: none;
+   
+    position: relative;
+    cursor: pointer;
 }
 
 .input_grandSon{
     list-style-type: none;
     background: #eee;
     margin: 2px;
-    padding: 5px 8px 6px 26px;
+    padding: 5px 8px 6px 39px;
 }
  
 
@@ -45,4 +47,17 @@ li.checked::before {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
+    
 }
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2px 7px 7px 8px;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }

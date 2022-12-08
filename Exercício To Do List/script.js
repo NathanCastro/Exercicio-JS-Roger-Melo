@@ -6,11 +6,12 @@ const divInput = document.querySelector('.divInput');
 
 
 divInput.addEventListener('click', event => {
-    newList = event.target
+    newList = event.target;
     if(newList.tagName === 'LI'){     
         newList.classList.toggle('checked');
     }
 })
+
 
 formulario.addEventListener('submit', event => {
     event.preventDefault();
@@ -27,6 +28,24 @@ formulario.addEventListener('submit', event => {
     divInput.appendChild(newInput);
 
     inputValue.value = ""
+    
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+
+    span.appendChild(txt);
+
+   newInput.appendChild(span)
+      
+    const close = document.querySelectorAll('span');
+
+    for(i=0; i < close.length; i++){
+        close[i].addEventListener('click', removedFather);
+    }
 
 })
 
+function removedFather(){ 
+    const li = this.parentNode;
+    li.parentNode.removeChild(li)
+}
