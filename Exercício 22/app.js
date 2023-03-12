@@ -4,11 +4,12 @@
   - Não modifique o array original;
   - Exiba o array ordenado no console.
 */
+const getArrayCopy = array =>array.map(item => item)
 
-const names = ['Caio', 'André', 'Dário']
+const names = ['Caio', 'André', 'Dário'];
+const newName = getArrayCopy(names).sort();
 
-const newName = names.sort()
-// console.log(newName);
+// console.log(newName, names);
 
 /*
   02
@@ -25,7 +26,8 @@ const characters = [
 ]
 
 
-const newIds = characters.sort((item1,item2)=> item1.id - item2.id)
+const newIds = characters.map(({id, name}) => ({id,name}))
+.sort((item1,item2) => item1.id - item2.id)
 // console.log('oi',newIds);
 
 /*
@@ -36,22 +38,16 @@ const newIds = characters.sort((item1,item2)=> item1.id - item2.id)
 */
 
 const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
-const OrderNumber = numbers.sort((res1, res2) => res1 - res2)
-// console.log(OrderNumber)
-
+const OrderNumber = getArrayCopy(numbers).sort((res1, res2) => res1 - res2)
+// console.log(OrderNumber);
 /*
   04
   - Encontre e exiba no console o 1º item maior que 50 do array abaixo.
 */
 
-const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
-const maiorFifty = randomNumbers.sort((number1, number2)=> number1 - number2)
-.filter((atualNumber)=>{
-  if(atualNumber>50){
-   return true
-  } 
- })
-console.log(maiorFifty[0]);
+const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70];
+const firstNumber = randomNumbers.find(res => res>50)
+// console.log(firstNumber);
 
 
 /*
@@ -62,6 +58,8 @@ console.log(maiorFifty[0]);
 */
 
 const people = ['Cauã', 'Alfredo', 'Bruno']
+const novosNomes = getArrayCopy(people).sort().reverse()
+// console.log(novosNomes);
 
 /*
   06
@@ -72,6 +70,19 @@ const people = ['Cauã', 'Alfredo', 'Bruno']
 */
 
 const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
+
+const cookie = ingredients.reduce((acc, item, index, array) => {
+  const gender = /a$/.test(item) ? 'cozida': 'cozido';
+  const lastItem = index === array.length -1;
+  const msgIngredient = acc + `${item} ${gender}`
+
+  return lastItem ? msgIngredient : `${msgIngredient}, `
+}, '');
+
+// console.log(cookie);
+
+
+
 
 /*
   07
@@ -93,6 +104,13 @@ const topBrazilmovies = [
   { title: 'Dona Flor e Seus Dois Maridos', peopleAmount: 10735524, distributedBy: 'Embrafilme' }
 ]
 
+const disneyMovie = topBrazilmovies
+  .filter(movie => movie.distributedBy === 'Disney')
+  .reduce((acumulador, {peopleAmount})=> acumulador + peopleAmount, 0)
+
+// console.log(disneyMovie);
+
+
 /*
   08
   
@@ -113,12 +131,25 @@ const pets = [
   { name: 'Chico', age: 6, gender: 'Male', type: 'Dog' }
 ]
 
+const tipoPets = pets.filter(({type}) => type === 'Dog')
+  .map(({name, age, gender, type}) => ({name, age:age * 7, gender, type}))
+  
+// console.log(tipoPets);
+
+
+
 /*
   09
   
   - Considerando o array topBrazilmovies, através do map ou do reduce, insira 
     os nomes dos filmes na ul do index.html.
 */
+
+const moviesBrasil = document.querySelector('.list-group');
+
+const movieNames = topBrazilmovies.reduce((acc, {title}) => acc + `<li>${title}</li>`, '')
+moviesBrasil.innerHTML = movieNames;
+
 
 /*
   10
